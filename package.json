@@ -19,7 +19,8 @@
     "lint": "standard",
     "changelog": "",
     "commitmsg": "commitlint -E GIT_PARAMS",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "publish": "np --no-cleanup --any-branch --yolo"
   },
   "author": "Eliaztray <944126009@qq.com>",
   "license": "MIT",
