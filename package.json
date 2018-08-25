@@ -1,6 +1,6 @@
 {
   "name": "cinter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cinter combines `js-beautify` & `stylelint`, First call `js-beautify` fix function output string as input to `stylelint`",
   "repository": {
     "url": "https://github.com/Eliaztray/cinter",
