@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "cinter combines `js-beautify` & `stylelint`, First call `js-beautify` fix function output string as input to `stylelint`",
   "repository": {
-    "url": "Eliaztray/cinter",
+    "url": "https://github.com/Eliaztray/cinter",
     "type": "git"
   },
   "main": "index.js",
@@ -18,9 +18,8 @@
     "test": "npm run lint && jest",
     "lint": "standard",
     "changelog": "",
-    "publish": "",
     "commitmsg": "commitlint -E GIT_PARAMS",
-    "commit": "git-cz --retry"
+    "commit": "git-cz"
   },
   "author": "Eliaztray <944126009@qq.com>",
   "license": "MIT",
@@ -48,6 +47,12 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "changelog": {
+    "labels": {
+      "feature": "New Feature",
+      "bug": "Bug Fix"
     }
   }
 }
