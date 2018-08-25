@@ -1,4 +1,4 @@
-const beautify_css = require('js-beautify').css
+const beautifyCSS = require('js-beautify').css
 const stylelint = require('stylelint')
 const globby = require('globby')
 const fs = require('fs-extra')
@@ -19,7 +19,7 @@ const exploreConfig = () => {
     } else {
       return config
     }
-  }).catch(err => {
+  }).catch(() => {
     console.log(chalk.default.red('Please report this bug'))
   })
 }
@@ -29,22 +29,23 @@ const styleValidExt = ['css', 'scss', 'less']
 const readFile = (path, ext) => {
   return fs.readFile(path, 'utf-8')
     .then(async data => {
-      let beauti_data = data
-      let result;
+      let beautiData = data
+      let result
       if (styleValidExt.includes(ext)) {
-        beauti_data = beautify_css(data)
+        let beautiData = data
+        beautiData = beautifyCSS(data)
         result = await stylelint.lint({
-          code: beauti_data,
+          code: beautiData,
           config: stylelintConfigOptions,
           syntax: ext,
-          fix: true,
+          fix: true
         })
       } else if (ext === 'vue') {
         result = await stylelint.lint({
-          code: beauti_data,
+          code: beautiData,
           config: stylelintConfigOptions,
           customSyntax: 'postcss-html',
-          fix: true,
+          fix: true
         })
       } else {
         console.log(chalk.default.red('.' + ext + '文件不被支持'))
@@ -58,7 +59,7 @@ const readFile = (path, ext) => {
           .then(res => {
             console.log(chalk.default.green(`path: ${path} 写入成功`))
           })
-          .catch(err => {
+          .catch(() => {
             console.log(chalk.default.red(`path: ${path} 写入失败`))
           })
       }
@@ -71,7 +72,7 @@ module.exports = async filePattern => {
     const length = paths.length
     console.log(chalk.default.cyan(`扫描有${length}条记录`))
     const Files = paths.map(src => {
-      const absolutePath = path.resolve(process.cwd(), src);
+      const absolutePath = path.resolve(process.cwd(), src)
       const ext = path.extname(absolutePath).slice(1).toLowerCase()
       return readFile(absolutePath, ext)
     })

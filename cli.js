@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 const chalk = require('chalk')
 const cli = require('cac')()
-const {
-  dump
-} = require('dumper.js')
 const main = require('.')
 
 cli.command('fix', {
@@ -15,7 +12,6 @@ cli.command('fix', {
   } else {
     main(input[0])
   }
-
 })
 // 异常退出
 cli.on('error', err => {
@@ -24,4 +20,3 @@ cli.on('error', err => {
 })
 
 cli.parse()
-

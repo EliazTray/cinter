@@ -16,7 +16,11 @@
   "scripts": {
     "test:cov": "jest --coverage && npm run lint",
     "test": "npm run lint && jest",
-    "lint": "standard"
+    "lint": "standard",
+    "changelog": "",
+    "publish": "",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "commit": "git-cz --retry"
   },
   "author": "Eliaztray <944126009@qq.com>",
   "license": "MIT",
@@ -26,14 +30,24 @@
   "dependencies": {
     "cac": "^4.4.4",
     "cosmiconfig": "^5.0.6",
-    "dumper.js": "^1.1.1",
     "fs-extra": "^7.0.0",
     "js-beautify": "^1.7.5",
     "stylelint": "^9.5.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
     "jest-cli": "^22.1.4",
+    "np": "^3.0.4",
     "standard": "^10.0.0"
   },
-  "typings": "types/index.d.ts"
+  "typings": "types/index.d.ts",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
